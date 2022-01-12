@@ -48,6 +48,7 @@ meltedCombined <- melt(setDT(combinedTestTrain), id.vars = c("Subject_ID", "Acti
 # Casting the variable column into separated variables once more, but aggregated with mean()
 castedCombined <- dcast(meltedCombined, Subject_ID + Activity_Name ~ variable, fun.aggregate = mean)
 
+# Attempt to view tidy dataset
 print("Done running. Attempting to view the castedCombined dataset now.")
 tryCatch(View(castedCombined),
          error = function(e){

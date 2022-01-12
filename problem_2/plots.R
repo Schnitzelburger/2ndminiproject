@@ -84,3 +84,4 @@ with(power_consumption, {
        ylab = "Global_rective_power")
 })
 dev.off()
+print("Done generating PNGs.")

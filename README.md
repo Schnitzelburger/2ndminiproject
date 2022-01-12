@@ -7,9 +7,9 @@ We know that features.txt contains variable names and activity_labels.txt, so we
 
 `test` and `train` both have the datasets we need to get our values from, so we create tables for those. Next, we retrieve activity IDs and subject IDs from both datasets.
 
-Now we use `rbind()` to merge both `activityID` and `subjectID`, so we can merge that to the combined `test` and `training` dataset later. After replacing some terms to make things clearer, we use `colnames()` to set variable names in our new combined dataset, referring to the `varNames` table we made earlier.
+Now we use `rbind()` to merge both `activityID` and `subjectID`, so we can merge that to the combined `test` and `training` dataset later. After replacing some terms to make things clearer (e.g., `mean()` to `mean`, `std()` to `standard_deviation`), we use `colnames()` to set variable names in our new combined dataset, referring to the `varNames` table we made earlier.
 
-Now that we have variable names as indicators for what values mean what, we use `grepl()` to take columns that match the strings "-mean()" or "-std()" since we're only looking for mean and standard deviation for each measurement.
+Now that we have variable names as indicators for what values mean what, we use `grepl()` to take columns that match the strings "mean" or "standard_deviation" since we're only looking for mean and standard deviation for each measurement.
 
 Next, we take the activity names we saved earlier and match them to their corresponding IDs, so that we can add them to our final list to be more detailed later.
 
@@ -18,3 +18,5 @@ Everything's set up now, so we can use `cbind()` to merge columns and give us a 
 Almost done. We then use `melt()` to put every variable into a column such that each row under those columns becomes a respective column to each variable, based on `Subject_ID` and `Activity_Name`.
 
 Finally, we use `dcast()` to separate the variables once more, while using the function `mean()` to aggregate.
+
+The program will then attempt to `View()` the resulting tidy dataset.
