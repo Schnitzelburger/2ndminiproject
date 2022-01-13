@@ -26,7 +26,7 @@ for (name in 1:nrow(varNames)) {
   varNames[[2]][name] <- gsub("std\\(\\)", "standard_deviation", varNames[[2]][name])
   varNames[[2]][name] <- gsub("Acc", "Acceleration", varNames[[2]][name])
   varNames[[2]][name] <- gsub("Mag", "Magnitude", varNames[[2]][name])
-  count = count + 1
+  count <- count + 1
 }
 colnames(combinedTestTrain) <- varNames[[2]]
 # Extract only measurements of mean and std deviation for each measurement
@@ -36,7 +36,7 @@ meanStdCombined <- combinedTestTrain[ ,grepl("mean|standard_deviation", colnames
 count <- 1
 for (id in 1:nrow(activityIDs)) {
   activityIDs[id, 2] <- activityNames[activityIDs[id, 1], 2]
-  count = count + 1
+  count <- count + 1
 }
 
 # Merge all tables to have Subject ID and Activity columns
