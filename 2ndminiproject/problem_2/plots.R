@@ -1,4 +1,5 @@
 # Reading given file and taking only those with dates between 1/2/2007 - 2/2/2007
+# Be sure to extract household_power_consumption.txt from household_power_consumption.rar before running
 power_consumption <- read.table("./household_power_consumption.txt", 
                    sep = ";", header = TRUE)
 power_consumption <- power_consumption[grep("\\b[12]/2/2007", power_consumption[, "Date"]), ]
